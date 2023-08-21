@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Notes } from 'src/app/Notes/Notes';
 import { NOTES } from 'src/app/Notes/AllNotes'
+import { NotesService } from 'src/app/Services/notes.service';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,24 @@ import { NOTES } from 'src/app/Notes/AllNotes'
 })
 export class HomeComponent implements OnInit {
 
-  title : String = '';
+  title : any = '';
   notes : Notes[] = NOTES;
+  copy : Notes[] = [];
 
 
-  constructor() { }
+  constructor(private noteService : NotesService) { }
 
   ngOnInit(): void {
+    this.noteService.getNotes().subscribe((notes)=>{
+      this.notes = notes;
+      this.copy = notes;
+    });
   }
 
   searchTitle(){
-    console.log(this.title);
+    let val = this.title.toLowerCase();
+    this.notes = this.copy.filter((note)=>note.title.toLowerCase().includes(val));
+   
   }
 
 }
