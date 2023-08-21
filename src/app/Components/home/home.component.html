@@ -1,15 +1,30 @@
-<div class="title">
-    <h1>Note Taking App</h1>
-</div>
+<div class="homeContainer">
 
-<div class="container">
-    <div class="searchBar">
-        <input name="title" (keyup)="searchTitle()" [(ngModel)]="title" type="text" placeholder="Enter Note Title">
-        <button class="submit">Filter</button>
+
+
+    <div class="title">
+        <h1>Note Taking App</h1>
     </div>
-</div>
 
-<div class="allNotes">
-    <app-note-item></app-note-item>
+    <div class="container">
+        <div class="searchBar">
+            <input name="title" (keyup)="searchTitle()" [(ngModel)]="title" type="text" placeholder="Enter Note Title">
+            <div class="btn-group dropdown">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Title</a>
+                    <a class="dropdown-item" href="#">Created Date</a>
+                    <a class="dropdown-item" href="#">Updated Date</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="allNotes">
+        <app-note-item [notes]="notes" ></app-note-item>
+    </div>
+
 </div>
 

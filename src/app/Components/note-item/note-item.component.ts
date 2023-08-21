@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Notes } from 'src/app/Notes/Notes';
 
 @Component({
   selector: 'app-note-item',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteItemComponent implements OnInit {
 
+  @Input() notes : Notes[] | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.notes);
   }
 
 }

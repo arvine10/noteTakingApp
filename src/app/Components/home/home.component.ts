@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Notes } from 'src/app/Notes/Notes';
+import { NOTES } from 'src/app/Notes/AllNotes'
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   title : String = '';
+  notes : Notes[] = NOTES;
+
 
   constructor() { }
 
