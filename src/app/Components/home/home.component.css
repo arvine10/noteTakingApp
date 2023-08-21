@@ -1,0 +1,32 @@
+.title{
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    display: grid;
+    place-items: center;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBar input{
+    margin: 0 10px;
+    width: 350px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.searchBar button{
+    background-color: #008000;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}

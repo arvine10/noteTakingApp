@@ -1,0 +1,15 @@
+<div class="title">
+    <h1>Note Taking App</h1>
+</div>
+
+<div class="container">
+    <div class="searchBar">
+        <input name="title" (keyup)="searchTitle()" [(ngModel)]="title" type="text" placeholder="Enter Note Title">
+        <button class="submit">Filter</button>
+    </div>
+</div>
+
+<div class="allNotes">
+    <app-note-item></app-note-item>
+</div>
+
