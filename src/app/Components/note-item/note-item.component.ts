@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Notes } from 'src/app/Notes/Notes';
 
 @Component({
@@ -10,10 +11,20 @@ export class NoteItemComponent implements OnInit {
 
   @Input() notes : Notes[] | undefined;
 
-  constructor() { }
+  constructor(private route : Router) { }
+
+  showDeleteBtn = false;
 
   ngOnInit(): void {
     console.log(this.notes);
+  }
+
+  goToNote(note : Notes){
+    // this.route.navigate(['/notes',note.id]);
+  }
+
+  toggleDelete(note : Notes){
+    note.showDelete = !note.showDelete;
   }
 
 }

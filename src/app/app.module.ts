@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NoteItemComponent } from './Components/note-item/note-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TakeNotesComponent } from './Components/take-notes/take-notes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NoteItemComponent
+    NoteItemComponent,
+    TakeNotesComponent
   ],
   imports: [
     BrowserModule,
