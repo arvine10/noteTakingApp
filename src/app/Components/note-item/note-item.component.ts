@@ -20,7 +20,7 @@ export class NoteItemComponent implements OnInit {
   }
 
   goToNote(note : Notes){
-    // this.route.navigate(['/notes',note.id]);
+    this.route.navigate(['/notes',note.id]);
   }
 
   toggleDelete(note : Notes){

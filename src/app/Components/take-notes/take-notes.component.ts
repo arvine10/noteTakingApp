@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Notes } from 'src/app/Notes/Notes';
+import { NotesService } from 'src/app/Services/notes.service';
 
 @Component({
   selector: 'app-take-notes',
@@ -9,11 +10,15 @@ import { Notes } from 'src/app/Notes/Notes';
 })
 export class TakeNotesComponent implements OnInit {
 
-  constructor(private activeRoute : ActivatedRoute) { }
+  constructor(private activeRoute : ActivatedRoute, 
+              private noteService : NotesService) { }
   note : any;
 
   ngOnInit(): void {
-    this.note = this.activeRoute.snapshot.paramMap.get('id');
+    const id = Number(this.activeRoute.snapshot.paramMap.get('id'));
+    this.note = this.noteService.getNoteById(id).subscribe((note)=>{
+      this.note = note;
+    })
   }
 
 }
