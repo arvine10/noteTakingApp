@@ -4,4 +4,5 @@ export interface Notes{
     text : String;
     created : String;
     updated : String;
+    showDelete : boolean;
 }

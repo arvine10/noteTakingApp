@@ -5,4 +5,21 @@
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+::ng-deep  app-note-item{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.btn{
+    background-color: red;
+    color: white;
 }
