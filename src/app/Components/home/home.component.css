@@ -35,9 +35,15 @@
 
 .homeContainer{
     margin: 10px 2px;
+    position: relative;
 }
 
 .allNotes{
     margin: 40px 10px;
     display: flex;
+}
+
+.addBtn{
+    margin-left: 8px;
+    cursor: pointer;
 }
