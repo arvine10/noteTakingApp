@@ -29,6 +29,35 @@ deleteNote(note : Notes){
   });
 }
 
+  filter(event : any){
+    const filterType = event.target.text;
+    if (filterType === 'Title')this.filterByTitle();
+    else if (filterType === 'Created Date')this.filterByTitle();
+    
+  }
+
+  filterByCreatedDate(){
+    this.copy = this.copy.sort((a,b)=>{
+      if (a.created < b.created) return -1;
+      if (a.created > b.created) return 1;
+      return 0
+    });
+    this.notes = this.copy;
+  }
+
+  filterByTitle(){
+    this.copy = this.copy.sort((a,b)=>{
+      if (b.title < a.title) {
+        return -1;
+      }
+      if (b.title > a.title) {
+        return 1;
+      }
+      return 0;
+    });
+    this.notes = this.copy;
+  }
+
   ngOnInit(): void {
     this.noteService.getNotes().subscribe((notes)=>{
       this.notes = notes;
@@ -39,10 +68,9 @@ deleteNote(note : Notes){
   searchTitle(){
     let val = this.title.toLowerCase();
     this.notes = this.copy.filter((note)=>note.title.toLowerCase().includes(val));
-   
   }
 
-  addNote(){
+  generateTimeStap(){
     var d = new Date,
     dformat = [d.getMonth()+1,
                d.getDate(),
@@ -50,6 +78,11 @@ deleteNote(note : Notes){
               [d.getHours(),
                d.getMinutes(),
                d.getSeconds()].join(':');
+    return dformat;
+  }
+
+  addNote(){
+    const dformat = this.generateTimeStap();
     let dialogRef = this.dialog.open(CreateNoteComponent, {
       width: "350px",
       height: "250px",
@@ -60,7 +93,7 @@ deleteNote(note : Notes){
     });
 
     dialogRef.afterClosed().subscribe((result)=>{
-      if (result.title.length > 0){
+      if (result && result.title.length > 0){
         this.noteService.addNotes(result).subscribe((note)=>{
           this.copy.push(note);
           this.notes = this.copy;

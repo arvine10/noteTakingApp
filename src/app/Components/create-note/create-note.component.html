@@ -1,4 +1,5 @@
-<div>
+<div class="item">
+    <div (click)="close()" class="close"><img src="../../../assets/images/redX.png" alt=""></div>
     <form (ngSubmit)="addNote()" [formGroup]="form">
         <input type="text" placeholder="Enter Title" formControlName="title">
         <button>Submit</button>

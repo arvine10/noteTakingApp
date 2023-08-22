@@ -1,13 +1,27 @@
 .container {
     background-color: rgba(0, 0, 0, 0.4);
+    transform: translate(-10%,-278%);
 }
 
 ::ng-deep .mat-dialog-container{
-    position: relative;
-    top: -202px;
     background-color: #f1f1f1;
     padding: 12px 24px;
     display: grid;
     place-items: center;
     border-radius: 8px;
+
+    height: 400px;
+    position: absolute;
+    top: 26%;
+    left: 28%;
+    width: 400px;
+}
+
+.close{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+    color: red;
 }
