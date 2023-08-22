@@ -25,4 +25,8 @@ export class CreateNoteComponent implements OnInit {
     this.dialogRef.close(note);
   }
 
+  close(){
+    this.dialogRef.close(null);
+  }
+
 }

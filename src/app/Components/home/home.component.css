@@ -36,6 +36,7 @@
 .homeContainer{
     margin: 10px 2px;
     position: relative;
+    min-height: 90vh;
 }
 
 .allNotes{
