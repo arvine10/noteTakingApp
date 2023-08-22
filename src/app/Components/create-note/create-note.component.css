@@ -1,0 +1,13 @@
+.container {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+::ng-deep .mat-dialog-container{
+    position: relative;
+    top: -202px;
+    background-color: #f1f1f1;
+    padding: 12px 24px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+}

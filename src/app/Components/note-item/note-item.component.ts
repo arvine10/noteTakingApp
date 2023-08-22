@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Notes } from 'src/app/Notes/Notes';
 
@@ -10,6 +10,7 @@ import { Notes } from 'src/app/Notes/Notes';
 export class NoteItemComponent implements OnInit {
 
   @Input() notes : Notes[] | undefined;
+  @Output() deleteNoteEvent : EventEmitter<Notes> = new EventEmitter();
 
   constructor(private route : Router) { }
 
@@ -25,6 +26,10 @@ export class NoteItemComponent implements OnInit {
 
   toggleDelete(note : Notes){
     note.showDelete = !note.showDelete;
+  }
+
+  deleteNote(note : Notes){
+    this.deleteNoteEvent.emit(note);
   }
 
 }

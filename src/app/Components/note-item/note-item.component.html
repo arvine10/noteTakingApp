@@ -2,6 +2,6 @@
     <div (dblclick)="toggleDelete(note)"
       class="notes" *ngFor="let note of notes">
         <h1 (click)="goToNote(note)"> {{note.title}}</h1>
-        <button *ngIf="note.showDelete" class="btn">Delete</button>
+        <button (click)="deleteNote(note)" *ngIf="note.showDelete" class="btn">Delete</button>
     </div>
 </div>

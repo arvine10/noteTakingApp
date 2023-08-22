@@ -1,7 +1,4 @@
 <div class="homeContainer">
-
-
-
     <div class="title">
         <h1>Note Taking App</h1>
     </div>
@@ -19,11 +16,14 @@
                     <a class="dropdown-item" href="#">Updated Date</a>
                 </div>
             </div>
+            <div (click)="addNote()" class="addBtn"><img src="../../../assets/images/plusIcon.png" alt=""></div>
         </div>
     </div>
 
     <div class="allNotes">
-        <app-note-item [notes]="notes" ></app-note-item>
+        <app-note-item
+        (deleteNoteEvent)="deleteNote($event)"
+         [notes]="notes" ></app-note-item>
     </div>
 
 </div>
