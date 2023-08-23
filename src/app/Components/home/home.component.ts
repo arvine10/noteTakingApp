@@ -32,14 +32,14 @@ deleteNote(note : Notes){
   filter(event : any){
     const filterType = event.target.text;
     if (filterType === 'Title')this.filterByTitle();
-    else if (filterType === 'Created Date')this.filterByTitle();
+    else if (filterType === 'Date')this.filterByDate();
     
   }
 
-  filterByCreatedDate(){
+  filterByDate(){
     this.copy = this.copy.sort((a,b)=>{
-      if (a.created < b.created) return -1;
-      if (a.created > b.created) return 1;
+      if (a.updated < b.updated) return -1;
+      if (a.updated > b.updated) return 1
       return 0
     });
     this.notes = this.copy;
@@ -47,10 +47,10 @@ deleteNote(note : Notes){
 
   filterByTitle(){
     this.copy = this.copy.sort((a,b)=>{
-      if (b.title < a.title) {
+      if (a.title < b.title) {
         return -1;
       }
-      if (b.title > a.title) {
+      if (a.title > b.title) {
         return 1;
       }
       return 0;
